@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/background.png.jpg</file>
+        <file>images/ZombieWalk1.gif</file>
+        <file>images/SunFlower.gif</file>
+        <file>images/Peashooter.gif</file>
+        <file>images/Sun.gif</file>
+        <file>images/ConeZombieWalk.gif</file>
+        <file>images/final_land.jpg</file>
+        <file>images/brain.png</file>
+        <file>images/BonkChoy.png</file>
+        <file>images/WallNut.png</file>
+    </qresource>
+</RCC>
