@@ -1,0 +1,15 @@
+debug/bullet.o
+debug/conezombie.o
+debug/main.o
+debug/mainwindow.o
+debug/peashooter.o
+debug/sun.o
+debug/sunflower.o
+debug/zombie.o
+debug/qrc_res.o
+debug/qrc_qmake_qmake_qm_files.o
+debug/moc_bullet.o
+debug/moc_mainwindow.o
+debug/moc_peashooter.o
+debug/moc_sun.o
+debug/moc_sunflower.o
