@@ -1,0 +1,22 @@
+# Qt 编译生成的临时文件
+*.o
+*.obj
+*.moc
+*.ui
+*.qrc.cpp
+moc_*.cpp
+ui_*.h
+Makefile
+*.pro.user
+*.pro.user.*
+*.qmake.stash
+
+# 编译目录（最占地方的文件夹）
+build/
+build-*/
+debug/
+release/
+
+# 系统生成的杂物
+.DS_Store
+Thumbs.db
