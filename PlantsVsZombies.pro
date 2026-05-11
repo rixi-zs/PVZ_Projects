@@ -1,4 +1,5 @@
 QT += widgets multimedia
+QT += multimedia
 
 CONFIG += c++17
 
@@ -9,8 +10,10 @@ CONFIG += c++17
 SOURCES += \
     bullet.cpp \
     conezombie.cpp \
+    hungrygame.cpp \
     main.cpp \
     mainwindow.cpp \
+    normalgame.cpp \
     peashooter.cpp \
     sun.cpp \
     sunflower.cpp \
@@ -19,7 +22,9 @@ SOURCES += \
 HEADERS += \
     bullet.h \
     conezombie.h \
+    hungrygame.h \
     mainwindow.h \
+    normalgame.h \
     peashooter.h \
     sun.h \
     sunflower.h \

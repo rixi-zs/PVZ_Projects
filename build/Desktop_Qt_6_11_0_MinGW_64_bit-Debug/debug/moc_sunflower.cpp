@@ -45,7 +45,7 @@ template <> constexpr inline auto SunFlower::qt_create_metaobjectdata<qt_meta_ta
 
     QtMocHelpers::UintData qt_methods {
         // Slot 'produceSun'
-        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -55,7 +55,7 @@ template <> constexpr inline auto SunFlower::qt_create_metaobjectdata<qt_meta_ta
             qt_methods, qt_properties, qt_enums);
 }
 Q_CONSTINIT const QMetaObject SunFlower::staticMetaObject = { {
-    QMetaObject::SuperData::link<QGraphicsObject::staticMetaObject>(),
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
     qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9SunFlowerE_t>.stringdata,
     qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9SunFlowerE_t>.data,
     qt_static_metacall,
@@ -86,12 +86,16 @@ void *SunFlower::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9SunFlowerE_t>.strings))
         return static_cast<void*>(this);
-    return QGraphicsObject::qt_metacast(_clname);
+    if (!strcmp(_clname, "QGraphicsItem"))
+        return static_cast< QGraphicsItem*>(this);
+    if (!strcmp(_clname, "org.qt-project.Qt.QGraphicsItem"))
+        return static_cast< QGraphicsItem*>(this);
+    return QObject::qt_metacast(_clname);
 }
 
 int SunFlower::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QGraphicsObject::qt_metacall(_c, _id, _a);
+    _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

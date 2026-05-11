@@ -6,5 +6,10 @@
         <file>images/Peashooter.gif</file>
         <file>images/Sun.gif</file>
         <file>images/ConeZombieWalk.gif</file>
+        <file>images/final_land.jpg</file>
+        <file>images/brain.png</file>
+        <file>images/BonkChoy.png</file>
+        <file>images/WallNut.png</file>
+        <file>audio/bgm.mp3</file>
     </qresource>
 </RCC>

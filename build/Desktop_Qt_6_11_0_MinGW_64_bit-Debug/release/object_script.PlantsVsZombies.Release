@@ -1,7 +1,9 @@
 release/bullet.o
 release/conezombie.o
+release/hungrygame.o
 release/main.o
 release/mainwindow.o
+release/normalgame.o
 release/peashooter.o
 release/sun.o
 release/sunflower.o
@@ -9,7 +11,8 @@ release/zombie.o
 release/qrc_res.o
 release/qrc_qmake_qmake_qm_files.o
 release/moc_bullet.o
+release/moc_hungrygame.o
 release/moc_mainwindow.o
+release/moc_normalgame.o
 release/moc_peashooter.o
-release/moc_sun.o
 release/moc_sunflower.o

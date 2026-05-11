@@ -1,6 +1,7 @@
 #include "bullet.h"
 #include "zombie.h"    // 必须包含僵尸的头文件，否则 dynamic_cast 不认识它
 #include <QGraphicsScene>
+#include <QPainter>
 
 Bullet::Bullet() {
     setZValue(15);

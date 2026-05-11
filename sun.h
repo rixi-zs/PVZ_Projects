@@ -1,16 +1,16 @@
 #ifndef SUN_H
 #define SUN_H
 
-#include <QGraphicsObject>
-#include <QPixmap> // 必须包含这个
+#include <QGraphicsItem>
+#include <QPixmap>
 
-class MainWindow;
+// 前向声明，告诉编译器 NormalGame 是个类
+class NormalGame;
 
-class Sun : public QGraphicsObject
-{
-    Q_OBJECT
+class Sun : public QGraphicsItem {
 public:
-    Sun(MainWindow *mainWin);
+    // 构造函数参数改为 NormalGame
+    Sun(NormalGame *game);
 
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
@@ -19,8 +19,8 @@ protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
-    MainWindow *m_mainWindow;
-    QPixmap pixmap; // --- 新增：存储阳光图片 ---
+    NormalGame *m_game; // 这里的类型改了
+    QPixmap pixmap;
 };
 
 #endif

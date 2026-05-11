@@ -1,20 +1,14 @@
 #include "sunflower.h"
 #include "sun.h"
-#include "mainwindow.h" // 必须包含这个，才能识别 MainWindow 类型
+#include "normalgame.h" // 核心改动：包含 normalgame.h 而不是 mainwindow.h
 #include <QGraphicsScene>
 #include <QGraphicsView>
+#include <QPainter>
 
 SunFlower::SunFlower() {
-    // 1. 加载图片
     pixmap.load(":/images/SunFlower.gif");
-
-    // 2. 初始化私人闹钟
     m_timer = new QTimer(this);
-
-    // 3. 关联：闹钟响了，就执行产阳光函数
     connect(m_timer, &QTimer::timeout, this, &SunFlower::produceSun);
-
-    // 4. 开启闹钟：每 10 秒产一个
     m_timer->start(10000);
 }
 
@@ -23,24 +17,25 @@ QRectF SunFlower::boundingRect() const {
 }
 
 void SunFlower::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) {
-    // 画出向日葵图片
     painter->drawPixmap(0, 0, 70, 80, pixmap);
 }
 
 void SunFlower::produceSun() {
-    // 只有当向日葵被放进场景且有视图时才产阳光
-    if (scene() && !scene()->views().isEmpty()) {
+    if (scene()) {
+        // 【关键改动】：
+        // 现在的向日葵是放在 NormalGame 的场景里的。
+        // 由于 NormalGame 本身就是 scene 的 parent，或者是包含场景的父窗口，
+        // 我们可以直接通过 scene()->parent() 或者通过视图转换得到 NormalGame 的指针。
 
-        // 【关键改动】：通过场景找到视图，再通过视图找到主窗口
-        // 这一步是为了把“大总管” MainWindow 找出来传给阳光
-        MainWindow *mw = static_cast<MainWindow*>(scene()->views().at(0)->window());
+        // 最稳妥的方法：因为 NormalGame 创建了 scene，我们可以直接获取
+        NormalGame *game = qobject_cast<NormalGame*>(scene()->parent());
 
-        // 创建阳光时，把主窗口指针 mw 传进去
-        Sun *s = new Sun(mw);
-
-        s->setZValue(10);
-        // 阳光出现在向日葵自己的坐标位置
-        s->setPos(x() + 10, y() - 20);
-        scene()->addItem(s);
+        if (game) {
+            // 创建阳光，把 game (NormalGame类型) 传进去
+            Sun *s = new Sun(game);
+            s->setZValue(10);
+            s->setPos(x() + 10, y() - 20);
+            scene()->addItem(s);
+        }
     }
 }
